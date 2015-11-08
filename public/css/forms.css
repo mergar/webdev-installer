@@ -1,0 +1,61 @@
+fieldset
+{
+	font-family:sans-serif, Tahoma, Arial;
+	font-size:90%;
+	padding:0;
+	overflow:hidden;
+	border:1px outset silver;
+	border-radius:6px;
+}
+
+label
+{
+	width:200px;
+	display:inline-block;
+	text-align:right;
+	margin-right:6px;
+}
+
+form
+{
+	padding:0;
+	margin:0
+}
+
+.form_cnt
+{
+	margin:6px;
+}
+
+.form_top
+{
+	background:#f0f0f0;
+	text-align:left;
+	margin:0;
+	padding:6px;
+	font-size:larger;
+	font-weight:bold;
+	border-bottom:1px solid silver;
+}
+
+.form_bottom
+{
+	background:#f0f0f0;
+	text-align:center;
+	margin:0;
+	padding:6px;
+	border-top:1px solid silver;
+}
+
+fieldset p
+{
+	margin:4px 0;
+}
+
+fieldset p span.comment
+{
+	margin-left:210px;
+	display:block;
+	font-size:small;
+	color:gray;
+}
