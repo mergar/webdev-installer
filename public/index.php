@@ -120,12 +120,14 @@ if($res['retval']==0)
 	if(!empty($arr))
 	{
 		echo '					<ul class="i-list">',PHP_EOL;
-		
 		foreach($arr as $key=>$disk)
 		{
 			list($name,$vendor,$size)=explode(':',$disk);
 			$name=trim($name);
 			$vendor=trim($vendor);
+			// удаляем < >  и прочую
+			$vendor = str_replace( array( '\'', '"', ',' , ';', '<', '>' ), ' ', $vendor);
+			if(strlen($vendor)<2) $vendor="Can't identify model";
 			$size=fileSizeConvert(trim($size));
 			echo '						<li><input type="checkbox" name="disk[]" id="disk-',$key,'" value="'.$name.'" /><label for="disk-',$key,'">',
 			$name,' — ',$vendor,' (',$size,')</label></li>',PHP_EOL;
@@ -143,7 +145,7 @@ if($res['retval']==0)
 						<h1>Select network card:</h1>
 <?php
 // and show available nics on the system
-$myCMD=CBSD_CMD." nics-list desc=1";
+$myCMD=CBSD_CMD." nics-list desc=1 skip=lo";
 $res=cbsd_cmd($myCMD);
 
 if($res['retval']==0)
