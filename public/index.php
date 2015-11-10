@@ -1,5 +1,7 @@
 <?php
 define('CBSD_CMD','env NOCOLOR=1 /usr/local/bin/sudo /usr/local/bin/cbsd ');
+$product="WebDev";
+
 /*
  	[HTTP_ACCEPT] => application/json, text/javascript
 	[HTTP_X_REQUESTED_WITH] => XMLHttpRequest
@@ -81,7 +83,7 @@ function cbsd_cmd($cmd)
 <head>
 	<meta charset="utf-8" />
 	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<title>WebDev</title>
+	<title><?php echo "$product"; ?></title>
 	<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
