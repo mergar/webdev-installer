@@ -130,9 +130,13 @@ if($res['retval']==0)
 			// удаляем < >  и прочую
 			$vendor = str_replace( array( '\'', '"', ',' , ';', '<', '>' ), ' ', $vendor);
 			if(strlen($vendor)<2) $vendor="Can't identify model";
-			$size=fileSizeConvert(trim($size));
-			echo '						<li><input type="checkbox" name="disk[]" id="disk-',$key,'" value="'.$name.'" /><label for="disk-',$key,'">',
-			$name,' — ',$vendor,' (',$size,')</label></li>',PHP_EOL;
+			if(strlen($name)>2) {
+				$size=fileSizeConvert(trim($size));
+				echo '						<li><input type="checkbox" name="disk[]" id="disk-',$key,'" value="'.$name.'" /><label for="disk-',$key,'">',
+				$name,' — ',$vendor,' (',$size,')</label></li>',PHP_EOL;
+			} else {
+				echo '						<li>Disk not found!</li>',PHP_EOL;
+			}
 		}
 		echo '					</ul>',PHP_EOL;
 	}
